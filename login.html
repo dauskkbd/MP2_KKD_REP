@@ -73,6 +73,7 @@
         let ln_warning = "Please enter your last name";
         let e_warning = "Please enter your email address";
         let pw_warning = "Please enter a password";
+        let character_warning = "Password must consist of 8 - 25 characters";
         let mismatch_pw_warning = "Passwords do not match";
         let re_pw_warning = "Please re-enter your password";
 
@@ -104,6 +105,7 @@
         });
 
         $("#password_warning").hide();
+
         $("#password").focusout(function () {
           if ($("#password").val() == "") {
             $("#password_warning").text(pw_warning).fadeIn(800);
@@ -116,6 +118,20 @@
         $("#re_enter_password").focusout(function () {
           if ($("#re_enter_password").val() !== $("#password").val()) {
             $("#re_enter_warning").text(mismatch_pw_warning).fadeIn(800);
+          }
+        });
+
+        $("#submit_button").click(function (event) {
+          event.preventDefault();
+          if (
+            $("#first_name").val() != "" &&
+            $("#last_name").val() != "" &&
+            $("#email").val() != "" &&
+            $("#password").val() != "" &&
+            $("#re_enter_password").val() != ""
+          ) {
+            // Show the modal
+            $("#submit_modal").modal("show");
           }
         });
       });
@@ -179,8 +195,7 @@
               >
                 Password guide </span
               ><br />
-              <span id="password_warning"></span>
-              <span id="char_warning" class="text-danger"></span>
+              <span id="password_warning" class="text-danger"></span>
 
               <!-- The Modal -->
               <div class="modal fade" id="my_modal">
@@ -236,7 +251,7 @@
                   >Re-enter password:
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   id="re_enter_password"
                   class="form-control form-input"
                 />
@@ -341,6 +356,39 @@
           </form>
         </div>
         <div class="col-lg-4 col-md-12 col-12"></div>
+      </div>
+    </div>
+
+    <!-- The Success Modal -->
+    <div class="modal fade" id="submit_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Successful</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p>You have successfully created an account</p>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
