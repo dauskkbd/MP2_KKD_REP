@@ -1,16 +1,29 @@
+/* Global */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  overflow-x: hidden;
 }
 
-.navbarStyles {
-  background-color: #333;
-  overflow: hidden;
-  text-align: center;
+.fs-large {
+  font-size: large;
 }
 
-.navbarStyles a {
+/* Nav */
+nav {
+  background-color: rgb(46, 46, 46);
+}
+
+.nav-pill .selected {
+  color: #1ef2c1;
+}
+
+.nav-btn-pill {
+  border-radius: 10px;
+}
+
+.nav-pill a {
   display: inline-block;
   color: #f2f2f2;
   text-align: center;
@@ -21,67 +34,67 @@ body {
   z-index: 1;
 }
 
-.navbarStyles .leftLinks:before,
-.navbarStyles .rightLinks:before {
+.nav-pill .leftLinks:before,
+.nav-pill .rightLinks:before {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   left: -10px;
   right: -10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: #1ef2c1; */
   z-index: -1;
+  transform: 2s;
+  transition-timing-function: linear;
 }
 
-.navbarStyles .leftLinks:before {
-  transform: skewX(-40deg);
+.nav-pill .leftLinks:before {
+  -webkit-transform: skewX(40deg);
+  -moz-transform: skewX(40deg);
+  border: solid 1px #1ef2c1;
 }
 
-.navbarStyles .rightLinks:before {
-  transform: skewX(40deg);
+.nav-pill .rightLinks:before,
+.nav-pill .rightLinks:after {
+  -webkit-transform: skewX(-40deg);
+  -moz-transform: skewX(-40deg);
+  border: solid 1px #1ef2c1;
 }
 
-.navbarStyles .rightLinks:active {
-  transform: skewX(40deg);
-  background-color: red;
-}
-.navbarStyles a:hover:before {
-  background-color: #ddd;
+.nav-pill .rightLinks:hover,
+.nav-pill .leftLinks:hover,
+.nav-end:hover {
+  color: #1ef2c1;
 }
 
 @media screen and (max-width: 600px) {
-  .navbarStyles a {
-    display: block;
-    margin: 10px 0;
+  .nav-pill .leftLinks:before,
+  .nav-pill .rightLinks:before {
+    border: none;
   }
+}
 
-  .navbarStyles .leftLinks:before,
-  .navbarStyles .rightLinks:before {
-    left: 0;
-    right: 0;
-    transform: none;
-  }
-
-  .navbarStyles img {
+@media screen and (max-width: 600px) {
+  .navbarStyle img {
     display: block;
     margin: 10px auto;
   }
 }
 
 @media screen and (max-width: 991px) {
-  .navbarStyles a {
+  .navbarStyle a {
     display: block;
     margin: 10px 0;
   }
 
-  .navbarStyles .leftLinks:before,
-  .navbarStyles .rightLinks:before {
+  .navbarStyle .leftLinks:before,
+  .navbarStyle .rightLinks:before {
     left: 0;
     right: 0;
     transform: none;
   }
 
-  .navbarStyles img {
+  .navbarStyle img {
     display: block;
     margin: 10px auto;
   }
