@@ -1,385 +1,175 @@
 const laptops = [
   {
     id: 0,
-    image: "ASUS_ROG_ZEPHYRUS_GX501VI-GZ020T.jpg",
+    image: "ASUS_ROG_ZEPHYRUS_GX501GI-XS74.png",
+    alt: "black laptop",
 
-    // Product Information
-    productColor: "Black",
-    productType: "Notebook",
-    formFactor: "Clamshell",
-    marketPositioning: "Gaming",
-
-    // Display Information
-    display: {
-      diagonal: 15.6,
-      surface: "Matt",
-      aspectRatio: "16:9",
-      hdType: "Full HD",
-      ledBacklight: true,
-      touchscreen: false,
-      resolution: "1920 x 1080",
-      nativeAspectRatio: "16:9",
-      brand: "ASUS",
-      family: "ROG",
-      series: "Zephyrus",
-      modelName: "GX501VI-GZ020T",
-      partNumber: "90NB0GU1-M00210",
-      releaseDate: "28 June 2017",
-      eanUpcCode: "4712900740677",
-      price: 3195,
+    product: {
+      name: "ASUS ROG Zephyrus",
+      model: "GX501GI-XS74",
     },
 
-    // Processor Information
+    os: "Windows 10 Pro",
+    graphicsCard: {
+      name: "NVIDIA® GeForce® GTX 1080",
+      code: "GTX_1080",
+      vram: "8GB GDDR5",
+      description:
+        " NVIDIA's GeForce GTX 1080 is powered by the award-winning NVIDIA Pascal ™ architecture. Discover amazing performance, power efficiency, and gaming experiences. This is the ultimate gaming platform. #GameReady.",
+    },
+
+    airflow: {
+      description:
+        " ROG-exclusive Active Aerodynamic System (AAS) includes several enhancements to make the cooler more effective, improving internal airflow and allowing the fan to spin slower and quieter while maintaining low temperatures.",
+    },
+
     processor: {
-      series: "Intel Core i7-7700 Mobile Series",
-      manufacturer: "Intel",
-      family: "Intel Core i7",
-      frequency: "2.8 GHz",
-      chipset: "Intel HM175",
-      boostFrequency: "3.8 GHz",
-      codename: "Kaby Lake",
-      tdp: 45,
-      model: "i7-7700HQ",
-      cores: 4,
-      threads: 8,
-      cache: "6 MB",
-      lithography: "14 nm",
-      generation: "7th gen Intel Core i7",
+      name: "Intel® Core™ i7-8750H",
+      frequency: "2.2 GHz",
+      boostFrequency: " 4.1 GHz",
+    },
+    ram: {
+      type: "8GB DDR4-2666",
+      expandable: "Yes",
+      maxCapacity: "24GB",
+      description:
+        "8GB DDR4-2666 RAM for faster response and smoother gameplay Explandable up to 24GB",
     },
 
-    // Memory Information
-    memory: {
-      type: "DDR4-SDRAM",
-      size: 24,
-      clockSpeed: 2400,
-      maxCapacity: 24,
-    },
-
-    // Graphics Information
-    graphics: {
-      onboard: {
-        hasAdapter: true,
-        memoryType: "GDDR5",
-        directXVersion: 12.0,
-        model: "Intel HD Graphics 630",
-        baseFrequency: 350,
-        dynamicFrequencyMax: 1100,
-        maxMemory: 64,
-        displaysSupported: 3,
-        openGLVersion: 4.4,
-      },
-      discrete: {
-        hasAdapter: true,
-        memoryType: "GDDR5",
-        model: "NVIDIA GeForce GTX 1080",
-        memory: 8,
-      },
-    },
-
-    // Storage Information
     storage: {
-      totalCapacity: 512,
-      ssd: {
-        count: 1,
-        capacity: 512,
-        interface: "PCI Express 3.0",
-      },
-      cardReader: false,
-      mediaType: "SSD",
+      capacity: "512GB PCIe® 3.0 NVMe™ M.2",
+      type: "SSD",
     },
 
-    // Optical Drive Information
-    opticalDrive: {
-      type: null,
+    display: {
+      diagonalInch: "15.6",
+      hdType: "FHD",
+      aspectRatio: "16:9",
+      resolution: "1920 x 1080",
+      refreshRate: "144Hz",
+      rgb: "Yes",
+      description:
+        "ROG Zephyrus' IPS display has a 144Hz refresh rate that lets you enjoy exceptionally smooth gaming at a true 144 frames per second, plus an ultra-fast 3ms response time that reduces blurring with rapid motion.",
     },
 
-    // Networking Information
-    networking: {
-      ethernet: false,
-      wifi: true,
-      wifiStandard: "Wi-Fi 5 (802.11ac)",
-      wifiStandards: [
-        "802.11a",
-        "Wi-Fi 5 (802.11ac)",
-        "802.11b",
-        "802.11g",
-        "Wi-Fi 4 (802.11n)",
-      ],
-      bluetooth: true,
-      _4g: false,
-      _3g: false,
-    },
-
-    // Ports & Interfaces Information
-    portsAndInterfaces: {
-      usbPorts: {
-        typeA: 4,
-        typeC: 1,
-      },
-      chargingPortType: "DC-in jack",
-      hdmiVersion: "2.0",
-      thunderboltPorts: 1,
-      dviPort: false,
-      dockingConnector: false,
-      comboHeadphoneMicPort: true,
-      hdmiPorts: 1,
-      usbTypeCPorts: 1,
-      usbTypeCDisplayPortAlternateMode: false,
-    },
-
-    // Audio Information
-    audio: {
-      microphone: true,
-      speakerPower: 2,
-    },
-
-    // Camera Information
-    camera: {
-      front: true,
-    },
-
-    // Keyboard Information
-    keyboard: {
-      numericKeypad: false,
-      fullSize: true,
-      windowsKeys: true,
-      pointingDevice: "Touchpad",
-    },
-
-    // Performance Information
-    performance: {
-      vrReady: true,
-    },
-
-    // Software Information
-    software: {
-      os: "Windows 10 Home",
-      osArchitecture: "64-bit",
-    },
-
-    // Battery Information
-    battery: {
-      technology: "Lithium Polymer (LiPo)",
-      numberOfCells: 4,
-      capacity: 50,
-    },
-
-    // Weight & Dimensions Information
-    weightAndDimensions: {
-      weight: 2.25,
-      height: {
-        rear: 1.79,
-        front: 1.69,
-      },
-      depth: 262,
-      width: 379,
-    },
-
-    // Power Information
-    power: {
-      acAdapter: {
-        power: 230,
-        frequency: "50 - 60 Hz",
-        inputVoltage: "100 - 240 V",
-        outputVoltage: 19.5,
-        outputCurrent: 16.9,
-      },
-    },
-
-    // Security Information
-    security: {
-      cableLockSlot: true,
-      cableLockSlotType: "Kensington",
+    price: {
+      usd: "$2,199.00",
+      php: "123,270.98 PHP",
     },
   },
+
   {
     id: 1,
-    image: "lenovo_legion_pro_7.jpg",
-    // DESIGN
-    productColor: "Grey",
-    productType: "Notebook",
-    formFactor: "Clamshell",
-    housingMaterial: "Aluminium",
+    image: "ASUS_ROG_ZEPHYRUS_GX501GI-XS74.png",
 
-    // DISPLAY
-    display: {
-      diagonal: "16 inch",
-      maxRefreshRate: "240 Hz",
-      contrastRatio: "1200:1",
-      brightness: "500 cd/m²",
-      panelType: "IPS",
-      hdType: "WQXGA",
-      ledBacklight: true,
-      touchscreen: false,
-      resolution: "2560 x 1600 pixels",
-      hdrTechnology: ["DisplayHDR 400", "Dolby Vision"],
-      rgbColorSpace: "sRGB",
-      colorGamut: "100%",
-      nativeAspectRatio: "16:10",
-      hdrSupported: true,
-      // BRAND
-      brand: "Lenovo",
-      family: "Legion",
-      modelName: "Pro 7",
-      partNumber: "82WQ005CUS",
-      releaseDate: "13 February 2023",
-      eanUpcCode: ["0196804591148", "196804591148"],
+    product: {
+      name: "ROG Zephyrus G16 (2024)",
+      model: "GU605MY-G16.U94090",
     },
 
-    // PROCESSOR
+    os: "Windows 11 Pro",
+
+    graphicsCard: {
+      name: "NVIDIA® GeForce RTX™ 4090",
+      code: "RTX_4090",
+      vram: "16GB GDDR6",
+      description:
+        "The NVIDIA® GeForce RTX™ 4090 is the ultimate GeForce GPU. It brings an enormous leap in performance, efficiency, and AI-powered graphics. Experience ultra-high performance gaming, incredibly detailed virtual worlds, unprecedented productivity, and new ways to create. ",
+    },
+
+    airflow: {
+      description:
+        "ROG Intelligent Cooling is a suite of components that work together in harmony to keep our high-performance laptops cool and quiet. The Zephyrus G16 boasts some never-before-seen additions to ROG's list of cooling technologies, including 2nd Generation Arc Flow Fans™ and a redesigned high-efficiency air outlet. ",
+    },
+
     processor: {
-      manufacturer: "Intel",
-      family: "Intel Core i9",
-      chipset: "Intel HM770",
-      boostFrequency: "5.4 GHz",
-      model: "i9-13900HX",
-      cores: 24,
-      cache: "36 MB",
-      generation: "13th gen Intel Core i9",
-      efficientCoreBoostFrequency: "3.9 GHz",
+      name: "Intel® Core™ Ultra 9 185H",
+      frequency: "2.3 GHz",
+      boostFrequency: " 5.1 GHz",
     },
-
-    // MEMORY
-    memory: {
-      type: "DDR5-SDRAM",
-      size: "32 GB",
-      formFactor: "SO-DIMM",
-      clockSpeed: "5600 MHz",
-      slots: "2x SO-DIMM",
-      maxInternalMemory: "32 GB",
-      layout: "2 x 16 GB",
-      channels: "Dual-channel",
+    ram: {
+      type: "16GB*2 LPDDR5X 7467",
+      expandable: false,
+      maxCapacity: "32GB",
+      description:
+        "Boasting up to 32GB capacity normally reserved for high-end workstations ultra-fast 7467MHz memory allows the Zephyrus to multitask with ease.",
     },
-
-    // GRAPHICS
-    graphics: {
-      discreteMemoryType: "GDDR6",
-      discreteManufacturer: "NVIDIA",
-      onBoard: true,
-      discrete: true,
-      discreteModel: "NVIDIA GeForce RTX 4090",
-      onBoardModel: "Intel UHD Graphics",
-      discreteMemory: "16 GB",
-    },
-
-    // STORAGE
     storage: {
-      totalCapacity: "1000 GB",
-      numSSDs: 1,
-      ssdCapacity: "1000 GB",
-      ssdTotalCapacity: "1000 GB",
-      ssdInterface: "PCI Express 4.0",
-      ssdFormFactor: "M.2",
-      cardReader: false,
-      media: "SSD",
-      nvme: true,
+      capacity: "2TB PCIe® 4.0 NVMe™ M.2",
+      type: "SSD",
+    },
+    display: {
+      diagonalInch: "15.6",
+      hdType: "FHD",
+      aspectRation: "16:9",
+      resolution: "1920 x 1080",
+      refreshRate: "144Hz",
+      rgb: "Yes",
+      description:
+        "For the first time on an ROG laptop, enjoy the ultra-fast response times and incredible contrast ratios that are only possible with OLED technology. This panel also boasts a 2.5K resolution, giving it incredible pixel density on a 16-inch screen, with a 144Hz refresh rate that makes all of your games look silky smooth. ",
     },
 
-    // OPTICAL DRIVE
-    opticalDrive: {
-      type: null,
+    price: {
+      usd: "$2,199.00",
+      php: "123,270.98 PHP",
+    },
+  },
+
+  {
+    id: 2,
+    image: "ASUS_ROG_ZEPHYRUS_GX501GI-XS74.png",
+
+    product: {
+      name: "ROG Zephyrus G16 (2024)",
+      model: "GU605MI-G16.U94070Y",
     },
 
-    // NETWORKING
-    networking: {
-      ethernet: true,
-      ethernetRates: "100, 1000 Mbit/s",
-      wifiStandard: "Wi-Fi 6E (802.11ax)",
-      wifiStandards: "Wi-Fi 6E (802.11ax)",
-      antennaType: "2x2",
-      bluetooth: true,
-      bluetoothVersion: "5.1",
-      wwan: "Not installed",
+    os: "Windows 11 Home",
+
+    graphicsCard: {
+      name: "NVIDIA® GeForce RTX™ 4070",
+      code: "RTX_4070",
+      vram: "8GB GDDR6",
+      description:
+        "Get equipped for supercharged gaming and creating with NVIDIA® GeForce RTX™ 4070 Ti SUPER, RTX 4070 SUPER, RTX 4070 Ti, and RTX 4070 graphics cards. They're built with the ultra-efficient NVIDIA Ada Lovelace architecture. Experience super fast ray tracing, AI-accelerated performance with DLSS 3, new ways to create, and much more.",
     },
 
-    // PORTS & INTERFACES
-    portsInterfaces: {
-      usbPorts: {
-        gen1TypeA: 4,
-        gen2TypeC: 1,
-      },
-      usbPowerDelivery: true,
-      usbSleepChargePorts: 1,
-      comboHeadphoneMicPort: true,
-      hdmiPorts: 1,
-      ethernetPorts: 1,
-      usbTypeCAltMode: true,
-      usbSleepCharge: true,
-      thunderbolt4Ports: 1,
-      intelThunderbolt4: true,
+    airflow: {
+      description:
+        "ROG Intelligent Cooling is a suite of components that work together in harmony to keep our high-performance laptops cool and quiet. The Zephyrus G16 boasts some never-before-seen additions to ROG's list of cooling technologies, including 2nd Generation Arc Flow Fans™ and a redesigned high-efficiency air outlet. ",
     },
 
-    // AUDIO
-    audio: {
-      builtInMic: true,
-      numBuiltInSpeakers: 2,
-      audioSystem: "Nahimic Audio",
-      speakerPower: "2 W",
-      audioChip: "Realtek ALC3306",
-      speakersManufacturer: "Harman Kardon",
-      numMicrophones: 2,
+    processor: {
+      name: "Intel® Core™ Ultra 9 185H",
+      frequency: "2.3 GHz",
+      boostFrequency: " 5.1 GHz",
+      cores: "16",
+    },
+    ram: {
+      type: "8GB*2 LPDDR5X 7467",
+      expandable: true,
+      maxCapacity: "16GB",
+      description:
+        "Boasting up to 16GB capacity normally reserved for high-end workstations ultra-fast 7467MHz memory allows the Zephyrus to multitask with ease.",
+    },
+    storage: {
+      capacity: "1TB PCIe® 4.0 NVMe™ M.2",
+      type: "SSD",
+    },
+    display: {
+      diagonalInch: "16",
+      hdType: "OLED",
+      aspectRation: "16:10",
+      resolution: "2.5K 2560 x 1600",
+      refreshRate: "240Hz",
+      rgb: "Yes",
+      description:
+        "For the first time on an ROG laptop, enjoy the ultra-fast response times and incredible contrast ratios that are only possible with OLED technology. This panel also boasts a 2.5K resolution, giving it incredible pixel density on a 16-inch screen, with a 240Hz refresh rate that makes all of your games look silky smooth. ",
     },
 
-    // CAMERA
-    camera: {
-      front: true,
-      privacyCamera: true,
-      frontHdType: "Full HD",
-      frontResolution: "1920 x 1080 pixels",
-    },
-
-    // KEYBOARD
-    keyboard: {
-      numericKeypad: true,
-      backlitColor: "RGB",
-      backlit: true,
-      pointingDevice: "Touchpad",
-      language: "US English",
-      backlitZone: "Per-key RGB",
-    },
-
-    // SOFTWARE
-    software: {
-      osInstalled: "Windows 11 Home",
-      osLanguage: "English",
-      osArchitecture: "64-bit",
-    },
-
-    // BATTERY
-    battery: {
-      tech: "Lithium Polymer (LiPo)",
-      capacity: "99.9 Wh",
-      fastCharging: true,
-    },
-
-    // WEIGHT & DIMENSIONS
-    weightDimensions: {
-      weight: "2.8 kg",
-      heightRear: "2.59 cm",
-      heightFront: "2.19 cm",
-      depth: "262.1 mm",
-      width: "363.4 mm",
-    },
-
-    // POWER
-    power: {
-      acAdapterPower: "330 W",
-      acAdapterFrequency: "50 - 60 Hz",
-      acAdapterInputVoltage: "100 - 240 V",
-    },
-
-    // SECURITY
-    security: {
-      fingerprintReader: false,
-      tpm: true,
-      passwordProtection: true,
-      passwordProtectionTypes: ["BIOS", "HDD", "Power on", "Supervisor"],
-      tpmVersion: "2.0",
-    },
-
-    // OTHER FEATURES
-    otherFeatures: {
-      antiGlareScreen: true,
+    price: {
+      usd: "$2,199.00",
+      php: "123,270.98 PHP",
     },
   },
 ];

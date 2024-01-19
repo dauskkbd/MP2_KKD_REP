@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/GGG_styles.css" />
+
+    <script>
+      async function getData(data) {
+        let my_obj = await fetch(data);
+        let my_text = await my_obj.text();
+        let accessory_selection = JSON.parse(my_text);
+        console.log(accessory_selection);
+
+        for (let i = 0; i < accessory_selection.length; i++) {
+          let card =
+            '<div class="col-lg-3 col-md-6 col-6 mb-3"><a class="accessory" id="' +
+            accessory_selection[i].id +
+            '"><div class="card"><img src="images/' +
+            accessory_selection[i].image +
+            '" alt="none" class="card-img-top img-fluid mt-3" /><div class="card-body"><h5 class="card-title" id="card_title">' +
+            accessory_selection[i].product.name +
+            '</h5><p class="card-text" id="card_text">Model: ' +
+            accessory_selection[i].product.model +
+            "</p><ul>" +
+            "<li>" +
+            accessory_selection[i].os +
+            "</li><li>" +
+            "</div></div></a></div>";
+          $("#accessory_cards").append(card);
+        }
+      }
+      getData("http://localhost:4000/api/accessory");
+    </script>
+
+    <title>3G Shop - Accessory</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1 class="header text-center mt-5" id="3g_title">
+      Gamers Gathering Ground
+    </h1>
+    <!-- sub navbar for item selection -->
+    <div class="container">
+      <div class="row">
+        <ul class="ul mt-5" id="sub_navbar">
+          <li><a href="shop_page_laptop.html">Laptop</a></li>
+          <li><a href="shop_page_mobile.html">Mobile Phone</a></li>
+          <li><a href="shop_page_accessory.html">Accessories</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- end of sub navbar -->
+    <!-- cards section here -->
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-6">
+          <!-- <input type="radio" class="filter_all" name="gpu_filter" id="all" />
+          <label for="all">All</label><br />
+          <input
+            class="gpu_filter"
+            type="radio"
+            name="gpu_filter"
+            id="GTX_1080"
+            value="GTX_1080"
+          />
+          <label for="GTX_1080">GTX 1080</label><br />
+          <input
+            class="gpu_filter"
+            type="radio"
+            name="gpu_filter"
+            id="RTX_4070"
+            value="RTX_4070"
+          />
+          <label for="RTX_4070">RTX 4070</label><br />
+          <input
+            class="gpu_filter"
+            type="radio"
+            name="gpu_filter"
+            id="RTX_4090"
+            value="RTX_4090"
+          />
+          <label for="RTX_4090">RTX 4090</label> -->
+        </div>
+      </div>
+      <div class="container-fluid mt-5">
+        <div class="row" id="accessory_cards"></div>
+      </div>
+    </div>
+  </body>
+</html>

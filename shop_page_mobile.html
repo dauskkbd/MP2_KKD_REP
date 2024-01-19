@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/GGG_styles.css" />
+
+    <script>
+      async function getData(data) {
+        let my_obj = await fetch(data);
+        let my_text = await my_obj.text();
+        let mobile_selection = JSON.parse(my_text);
+        console.log(mobile_selection);
+
+        for (let i = 0; i < mobile_selection.length; i++) {
+          let card =
+            '<div class="col-lg-3 col-md-6 col-6 mb-3"><a class="mobile" id="' +
+            mobile_selection[i].id +
+            '"><div class="card"><img src="images/' +
+            mobile_selection[i].image +
+            '" alt="none" class="card-img-top img-fluid mt-3" /><div class="card-body"><h5 class="card-title" id="card_title">' +
+            mobile_selection[i].product.name +
+            '</h5><p class="card-text" id="card_text"></p><ul><li>' +
+            mobile_selection[i].os +
+            "</li><li>" +
+            mobile_selection[i].processor.name +
+            "</li><li>" +
+            mobile_selection[i].memory.ram +
+            "</li><li>" +
+            mobile_selection[i].camera.rear +
+            "</li><li>" +
+            mobile_selection[i].camera.front +
+            "</li></ul></div></div></a></div>";
+          $("#mobile_cards").append(card);
+          $(".mobile").click(function () {
+            let mobile = Number($(this).prop("id"));
+            sessionStorage.setItem("mobile_selected", mobile);
+            window.location.href = "full_specs_mobile.html";
+          });
+        }
+      }
+
+      $(document).ready(function () {
+        $(".manufacturer_filter").click(function () {
+          let manufacturer = $(this).val();
+          $("#mobile_cards").text("");
+
+          getData("http://localhost:4000/api/mobile/product/" + manufacturer);
+        });
+      });
+      $(document).ready(function () {
+        $(".filter_all").click(function () {
+          $("#mobile_cards").text("");
+          getData("http://localhost:4000/api/mobile/");
+        });
+      });
+
+      getData("http://localhost:4000/api/mobile");
+    </script>
+
+    <title>3G Shop - Mobile</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1 class="header text-center mt-5" id="3g_title">
+      Gamers Gathering Ground
+    </h1>
+    <!-- sub navbar for item selection -->
+    <div class="container">
+      <div class="row">
+        <ul class="ul mt-5" id="sub_navbar">
+          <li><a href="shop_page_laptop.html">Laptop</a></li>
+          <li><a href="shop_page_mobile.html">Mobile Phone</a></li>
+          <li><a href="shop_page_accessory.html">Accessories</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- end of sub navbar -->
+    <!-- cards section here -->
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-6">
+          <input
+            type="radio"
+            class="filter_all"
+            name="manufacturer_filter"
+            id="all"
+          />
+          <label for="all">All</label><br />
+          <input
+            class="manufacturer_filter"
+            type="radio"
+            name="manufacturer_filter"
+            id="ASUS"
+            value="ASUS"
+          />
+          <label for="ASUS">ASUS</label><br />
+          <input
+            class="manufacturer_filter"
+            type="radio"
+            name="manufacturer_filter"
+            id="Lenovo"
+            value="Lenovo"
+          />
+          <label for="Lenovo">Lenovo</label><br />
+        </div>
+      </div>
+      <div class="container-fluid mt-5">
+        <div class="row" id="mobile_cards"></div>
+      </div>
+    </div>
+  </body>
+</html>

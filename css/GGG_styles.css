@@ -1,110 +1,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-}
-
-.navbarStyle {
-  background-color: #333;
-  overflow: hidden;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbarStyle .item-list {
-  display: flex;
-  justify-content: center; /* Center the item list horizontally */
-  align-items: center;
-}
-
-.navbarStyle a {
-  display: inline-block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  margin: 0 10px;
-  position: relative;
-  z-index: 1;
-}
-
-.navbarStyle .leftLinks:before,
-.navbarStyle .rightLinks:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -10px;
-  right: -10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: -1;
-  transform: 2s;
-  transition-timing-function: linear;
-}
-
-.navbarStyle .leftLinks:before {
-  transform: skewX(-40deg);
-}
-
-.navbarStyle .rightLinks:before {
-  transform: skewX(40deg);
-}
-
-.navbarStyle .search-bar {
-  margin-right: auto; /* Push the search bar to the right */
-}
-
-.navbarStyle .search-bar input {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin: 0;
-  width: 200px; /* Adjust the width as needed */
-}
-
-.navbarStyle a:hover:before,
-.navbarStyle a:hover:after {
-  background-color: #ddd;
-}
-
-@media screen and (max-width: 600px) {
-  .navbarStyle a {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .navbarStyle .leftLinks:before,
-  .navbarStyle .rightLinks:before {
-    left: 0;
-    right: 0;
-    transform: none;
-  }
-
-  .navbarStyle img {
-    display: block;
-    margin: 10px auto;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  .navbarStyle a {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .navbarStyle .leftLinks:before,
-  .navbarStyle .rightLinks:before {
-    left: 0;
-    right: 0;
-    transform: none;
-  }
-
-  .navbarStyle img {
-    display: block;
-    margin: 10px auto;
-  }
+  background-color: #101010;
+  color: white;
 }
 
 /* kenneth's sub_navbar */
@@ -123,5 +21,24 @@ body {
   display: block;
   padding: 8px;
   text-decoration: none;
-  color: black;
+  color: white;
+}
+
+/* cards css */
+.card {
+  background-color: #6e6e6e;
+}
+
+#card_title,
+#card_text {
+  color: white;
+  text-decoration: none;
+}
+
+.card .card-body ul {
+  color: white;
+}
+
+a {
+  text-decoration: none;
 }
