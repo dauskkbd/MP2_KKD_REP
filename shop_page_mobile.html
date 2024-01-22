@@ -5,98 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/GGG_styles.css" />
-
-    <script>
-      async function getData(data) {
-        let my_obj = await fetch(data);
-        let my_text = await my_obj.text();
-        let mobile_selection = JSON.parse(my_text);
-        console.log(mobile_selection);
-
-        for (let i = 0; i < mobile_selection.length; i++) {
-          let card =
-            '<div class="col-lg-3 col-md-6 col-6 mb-3"><a class="mobile" id="' +
-            mobile_selection[i].id +
-            '"><div class="card"><img src="images/' +
-            mobile_selection[i].image +
-            '" alt="none" class="card-img-top img-fluid mt-3" /><div class="card-body"><h5 class="card-title" id="card_title">' +
-            mobile_selection[i].product.name +
-            '</h5><p class="card-text" id="card_text"></p><ul><li>' +
-            mobile_selection[i].os +
-            "</li><li>" +
-            mobile_selection[i].processor.name +
-            "</li><li>" +
-            mobile_selection[i].memory.ram +
-            "</li><li>" +
-            mobile_selection[i].camera.rear +
-            "</li><li>" +
-            mobile_selection[i].camera.front +
-            "</li></ul></div></div></a></div>";
-          $("#mobile_cards").append(card);
-          $(".mobile").click(function () {
-            let mobile = Number($(this).prop("id"));
-            sessionStorage.setItem("mobile_selected", mobile);
-            window.location.href = "full_specs_mobile.html";
-          });
-        }
-      }
-
-      $(document).ready(function () {
-        $(".manufacturer_filter").click(function () {
-          let manufacturer = $(this).val();
-          $("#mobile_cards").text("");
-
-          getData("http://localhost:4000/api/mobile/product/" + manufacturer);
-        });
-      });
-      $(document).ready(function () {
-        $(".filter_all").click(function () {
-          $("#mobile_cards").text("");
-          getData("http://localhost:4000/api/mobile/");
-        });
-      });
-
-      getData("http://localhost:4000/api/mobile");
-    </script>
+    <script src="js/shop_page_mobile.js"></script>
+    <script src="js/login.js"></script>
 
     <title>3G Shop - Mobile</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo</a>
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="images/3GLogo.png"
+            alt="logo"
+            id="navbar_logo"
+            class="img-fluid"
+          />
+        </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#collapsibleNavbar"
+          data-bs-target="#mynavbar"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="login.html" id="log_in_link"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)" id="sign_out"></a>
             </li>
           </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Search" />
+            <button class="btn btn-primary" type="button">Search</button>
+          </form>
         </div>
       </div>
     </nav>
 
-    <h1 class="header text-center mt-5" id="3g_title">
-      Gamers Gathering Ground
-    </h1>
+    <div class="image-container">
+      <img
+        src="images/gamersgatheringgroundlogo.jpg"
+        alt="gamers gathering ground logo with a controller on the left side"
+        id="threeGtext"
+        class="img-fluid"
+      />
+    </div>
     <!-- sub navbar for item selection -->
     <div class="container">
       <div class="row">
@@ -110,7 +82,7 @@
 
     <!-- end of sub navbar -->
     <!-- cards section here -->
-    <div class="container mt-2">
+    <div class="container mt-2 mb-5">
       <div class="row">
         <div class="col-lg-3 col-md-6 col-6">
           <input
@@ -142,5 +114,50 @@
         <div class="row" id="mobile_cards"></div>
       </div>
     </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">affiliate program</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">shipping</a></li>
+              <li><a href="#">returns</a></li>
+              <li><a href="#">order status</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>online shop</h4>
+            <ul>
+              <li><a href="#">watch</a></li>
+              <li><a href="#">laptops</a></li>
+              <li><a href="#">mobile phones</a></li>
+              <li><a href="#">accessories</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

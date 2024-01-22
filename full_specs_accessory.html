@@ -5,87 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/GGG_styles.css" />
-    <style>
-      #full_specs_table {
-        border: none;
-        width: 100%;
-        max-height: 50vh;
-        overflow-y: auto;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-    </style>
-    <script>
-      async function getData(data) {
-        let my_obj = await fetch(data);
-        let my_text = await my_obj.text();
-        let laptops_selection = JSON.parse(my_text);
-        $(document).ready(function () {
-          $("#laptop_name").text(laptops_selection.product.name);
-          $("#laptop_model").text(laptops_selection.product.model);
-          $("#laptop_gpu").text(laptops_selection.graphicsCard.name);
-          $("#laptop_diagonal_display").text(
-            laptops_selection.display.diagonalInch
-          );
-          $("#laptop_aspect_ratio").text(laptops_selection.display.aspectRatio);
-          $("#laptop_resolution").text(laptops_selection.display.resolution);
-          $("#laptop_hd_type").text(laptops_selection.display.hdType);
-          $("#laptop_processor").text(laptops_selection.processor.name);
-          $("#laptop_processor_frequency").text(
-            laptops_selection.processor.frequency
-          );
-          $("#laptop_processor_boost").text(
-            laptops_selection.processor.boostFrequency
-          );
-          $("#laptop_ram_type").text(laptops_selection.ram.type);
-          $("#laptop_ram_capacity").text(laptops_selection.ram.maxCapacity);
-        });
-      }
-      let laptop = sessionStorage.getItem("laptop_selected");
-      getData("http://localhost:4000/api/laptops/" + laptop);
-    </script>
-    <title>Full Specification - Laptop</title>
+    <script src="js/full_specs_accessory.js"></script>
+    <script src="js/login.js"></script>
+    <title>Full Specification - Accessory</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo</a>
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="images/3GLogo.png"
+            alt="logo"
+            id="navbar_logo"
+            class="img-fluid"
+          />
+        </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#collapsibleNavbar"
+          data-bs-target="#mynavbar"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="login.html" id="log_in_link"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)" id="sign_out"></a>
             </li>
           </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Search" />
+            <button class="btn btn-primary" type="button">Search</button>
+          </form>
         </div>
       </div>
     </nav>
 
-    <h1 class="header text-center mt-5" id="3g_title">
-      Gamers Gathering Ground
-    </h1>
+    <div class="image-container">
+      <img
+        src="images/gamersgatheringgroundlogo.jpg"
+        alt="gamers gathering ground logo with a controller on the left side"
+        id="threeGtext"
+        class="img-fluid"
+      />
+    </div>
 
     <div class="container mt-5">
       <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-3">
+        <div class="col-lg-4" id="image_area"></div>
+        <div class="col-lg-4">
           <div id="full_specs_table">
             <table class="table">
               <thead>
@@ -93,52 +80,43 @@
               </thead>
               <tbody>
                 <tr>
-                  <td id="laptop_name"></td>
-                </tr>
-                <tr>
-                  <td id="laptop_model"></td>
+                  <td><span id="accessory_name"></span></td>
                 </tr>
               </tbody>
             </table>
             <table class="table mt-3">
               <thead>
-                <th>Graphics</th>
+                <th>Support Platform</th>
               </thead>
               <tbody>
                 <tr>
-                  <td id="laptop_gpu"></td>
+                  <td id="accessory_support_platform"></td>
                 </tr>
               </tbody>
             </table>
             <table class="table mt-3">
               <thead>
-                <th>Display</th>
+                <th>Driver</th>
               </thead>
               <tbody>
                 <tr>
-                  <td><span id="laptop_diagonal_display"></span> diagonal</td>
+                  <td>
+                    Material: <span id="accessory_driver_material"></span>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Aspect Ratio: <span id="laptop_aspect_ratio"></span></td>
-                </tr>
-                <tr>
-                  <td>Resolution: <span id="laptop_resolution"></span></td>
-                </tr>
-                <tr>
-                  <td id="laptop_hd_type">HD Type: Full HD</td>
+                  <td>Size: <span id="accessory_driver_size"></span></td>
                 </tr>
               </tbody>
             </table>
             <table class="table">
               <thead>
-                <th>Processor</th>
+                <th>Pick Up Pattern</th>
               </thead>
               <tbody>
                 <tr>
                   <td>
-                    <span id="laptop_processor"></span> ||
-                    <span id="laptop_processor_frequency"></span> -
-                    <span id="laptop_processor_boost"></span>
+                    <span id="accessory_pickup"></span>
                   </td>
                 </tr>
               </tbody>
@@ -146,52 +124,124 @@
 
             <table class="table mt-3">
               <thead>
-                <th>Memory</th>
+                <th>Sensitivity</th>
               </thead>
               <tbody>
                 <tr>
-                  <td id="laptop_ram_type"></td>
+                  <td id="accessory_sensitivity"></td>
                 </tr>
                 <tr>
-                  <td>Max Capacity: <span id="laptop_ram_capacity"></span></td>
+                  <td>Impedance: <span id="accessory_impedance"></span></td>
                 </tr>
               </tbody>
             </table>
             <table class="table mt-3">
               <thead>
-                <th>Price</th>
+                <th>Frequency Response</th>
               </thead>
               <tbody>
                 <tr>
-                  <td>$2,199.00</td>
+                  <td>Headphone: <span id="accessory_fr_headphone"></span></td>
                 </tr>
                 <tr>
-                  <td>123,270.98 PHP</td>
+                  <td>
+                    Microphone: <span id="accessory_fr_microphone"></span>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <div class="col-lg-6">
-          <table class="table">
-            <thead>
-              <th>ROG Zephyrus G16 (2024) GU605MY</th>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>₱119,995</td>
-              </tr>
-              <tr>
-                <td>
-                  (NVIDIA® GeForce RTX™ 4090 16GB GDDR6 / 15.6" FHD / 144Hz /
-                  Ultra 9 185H / 2TB PCIe® 4.0 SSD / 16GB x 2)
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-lg-4 col-md-12 col-md-12">
+          <div>
+            <img
+              src="images/headphone_icon.png"
+              alt="cpu symbol"
+              class="img-fluid symbol"
+            />
+          </div>
+          <div class="mt-1">
+            <span id="headphone_description"></span>
+          </div>
         </div>
       </div>
     </div>
+    <div class="modal fade" id="my_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Successfully added to cart!</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p>Would you like to view your cart?</p>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <a href="shop_page_laptop.html">
+              <button type="button" class="btn btn-primary">
+                Continue shopping
+              </button></a
+            >
+            <button type="button" class="btn btn-success" id="view_cart">
+              View Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">affiliate program</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">shipping</a></li>
+              <li><a href="#">returns</a></li>
+              <li><a href="#">order status</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>online shop</h4>
+            <ul>
+              <li><a href="#">watch</a></li>
+              <li><a href="#">bag</a></li>
+              <li><a href="#">shoes</a></li>
+              <li><a href="#">dress</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

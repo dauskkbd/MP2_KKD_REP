@@ -5,6 +5,61 @@ body {
   color: white;
 }
 
+/* for log in */
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.form-label,
+#remember_me {
+  margin-bottom: 5px;
+  color: black;
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
+  background-color: #ececec;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.404);
+  border: none;
+}
+
+.form-instructions {
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+#birthmonth,
+#birthday,
+#birthyear {
+  width: 32%;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+#password_guide {
+  cursor: pointer;
+  color: blue;
+}
+
+.modal-body ul {
+  font-size: 16px;
+}
+
+.modal-body li {
+  margin-bottom: 10px;
+}
+
+#login_form {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
+  background-color: #ffffff;
+}
+
 /* kenneth's sub_navbar */
 #sub_navbar ul {
   margin: 0;
@@ -26,7 +81,7 @@ body {
 
 /* cards css */
 .card {
-  background-color: #6e6e6e;
+  background-color: #3d3d3d;
 }
 
 #card_title,
@@ -41,4 +96,124 @@ body {
 
 a {
   text-decoration: none;
+}
+
+/* for shop page */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+#navbar_logo {
+  width: 150px;
+}
+
+/* for full specs */
+#full_specs_table {
+  border: none;
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #3a3a3a;
+  border-radius: 5px;
+}
+
+.symbol {
+  margin-top: 20px;
+  width: 100px;
+}
+
+table th,
+table td {
+  color: white;
+}
+
+.modal-content {
+  color: black;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  background-color: rgb(242, 242, 242);
+}
+
+/* for display cart */
+#item_purchased {
+  border: none;
+  box-shadow: 0 0 0 2px rgb(250, 250, 250);
+  padding: 40px;
+}
+
+#laptop_name,
+#laptop_model,
+th,
+#warranty_year,
+#warranty_replacement {
+  color: rgb(250, 250, 250);
+  font-size: 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #24262b;
+  padding: 70px 0;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
 }

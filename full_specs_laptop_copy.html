@@ -5,69 +5,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/GGG_styles.css" />
-    <script src="js/full_specs_laptop.js"></script>
-    <script src="js/login.js"></script>
+    <style>
+      #full_specs_table {
+        border: none;
+        width: 100%;
+        max-height: 100vh;
+        overflow-y: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #3a3a3a;
+        border-radius: 5px;
+      }
+
+      .symbol {
+        margin-top: 20px;
+        width: 100px;
+      }
+
+      table th,
+      table td {
+        color: white;
+      }
+
+      .modal-content {
+        color: black;
+      }
+
+      .modal-header,
+      .modal-body,
+      .modal-footer {
+        background-color: rgb(
+          242,
+          242,
+          242
+        ); /* Change this to your desired background color */
+      }
+    </style>
+    <script>
+      async function getData(data) {
+        let my_obj = await fetch(data);
+        let my_text = await my_obj.text();
+        let laptops_selection = JSON.parse(my_text);
+
+        let image =
+          '<img src="images/' +
+          laptops_selection.image +
+          '" alt="" class="img-fluid"><button type="button" class="btn btn-primary me-1 ms-2">View Gallery</button><button type="button" class="btn btn-success me-1">Buy Now</button><button type="button" class="btn btn-warning" id="add_to_cart" data-bs-toggle="modal" data-bs-target="#my_modal">Add to cart</button></div>';
+        $("#image_area").append(image);
+
+        $(document).ready(function () {
+          $("#laptop_name").text(laptops_selection.product.name);
+          $("#laptop_model").text(laptops_selection.product.model);
+          $("#laptop_gpu").text(laptops_selection.graphicsCard.name);
+          $("#laptop_diagonal_display").text(
+            laptops_selection.display.diagonalInch
+          );
+          $("#laptop_aspect_ratio").text(laptops_selection.display.aspectRatio);
+          $("#laptop_resolution").text(laptops_selection.display.resolution);
+          $("#laptop_hd_type").text(laptops_selection.display.hdType);
+          $("#laptop_processor").text(laptops_selection.processor.name);
+          $("#laptop_processor_frequency").text(
+            laptops_selection.processor.frequency
+          );
+          $("#laptop_processor_boost").text(
+            laptops_selection.processor.boostFrequency
+          );
+          $("#laptop_ram_type").text(laptops_selection.ram.type);
+          $("#laptop_ram_capacity").text(laptops_selection.ram.maxCapacity);
+          $("#laptop_price_dollar").text(laptops_selection.price.usd);
+          $("#laptop_price_peso").text(laptops_selection.price.php);
+          $("#laptop_gpu_description").text(
+            laptops_selection.graphicsCard.description
+          );
+          $("#laptop_ram_description").text(laptops_selection.ram.description);
+          $("#laptop_airflow_description").text(
+            laptops_selection.airflow.description
+          );
+          $("#laptop_display_description").text(
+            laptops_selection.display.description
+          );
+          $("#add_to_cart").click(function () {
+            let this_laptop = laptops_selection.id;
+            let default_user_id = 42919;
+
+            //mamaya
+
+            //let temp_param = sessionStorage.setItem("laptop_selected", laptop);
+            //console.log(typeof temp_param);
+
+            // window.location.href = "shop_page_laptop.html";
+            console.log(this_laptop);
+            console.log(typeof this_laptop);
+
+            let query_string = "";
+
+            // [TODO] declare default_user_id in a config file somewhere
+
+            query_string = query_string + "user_id=" + default_user_id;
+            query_string = query_string + "&product_id=" + this_laptop;
+
+            let api_string =
+              "http://localhost:4000/api/addtocart2/?" + query_string;
+
+            getData(api_string);
+
+            /*
+            getData(
+              "https://express-demo-g3ms.onrender.com/api/addtocart/" +
+                user_id_fe
+            );
+            */
+          });
+          $("#press_me").click(function () {
+            console.log("press me clicked");
+            let user_id = 54136;
+            let product_id = laptops_selection.id;
+            console.log(typeof product_id);
+
+            getData(
+              "http://localhost:4000/api/carts/" + user_id + "/" + product_id
+            );
+          });
+        });
+      }
+
+      let laptop = sessionStorage.getItem("laptop_selected");
+      getData("http://localhost:4000/api/laptops/" + laptop);
+    </script>
     <title>Full Specification - Laptop</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-          <img
-            src="images/3GLogo.png"
-            alt="logo"
-            id="navbar_logo"
-            class="img-fluid"
-          />
-        </a>
+        <a class="navbar-brand" href="#">Logo</a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#mynavbar"
+          data-bs-target="#collapsibleNavbar"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-          <ul class="navbar-nav me-auto">
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html" id="log_in_link"></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)" id="sign_out"></a>
+              <a class="nav-link" href="#">Link</a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="text" placeholder="Search" />
-            <button class="btn btn-primary" type="button">Search</button>
-          </form>
         </div>
       </div>
     </nav>
 
-    <div class="image-container">
-      <img
-        src="images/gamersgatheringgroundlogo.jpg"
-        alt="gamers gathering ground logo with a controller on the left side"
-        id="threeGtext"
-        class="img-fluid"
-      />
-    </div>
+    <h1 class="header text-center mt-5" id="3g_title">
+      Gamers Gathering Ground
+    </h1>
 
     <div class="container mt-5 mb-5">
       <div class="row">

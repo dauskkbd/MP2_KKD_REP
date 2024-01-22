@@ -9,158 +9,48 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/GGG_styles.css" />
+    <script src="js/login_function.js"></script>
     <title>Sign Up</title>
-    <style>
-      body {
-        background-color: #f8f8f8;
-        margin: 0;
-      }
 
-      .signup-header {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .form-label {
-        margin-bottom: 5px;
-      }
-
-      .form-input {
-        width: 100%;
-        height: 40px;
-        background-color: #fbfbfb;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.404);
-        border: none;
-      }
-
-      .form-instructions {
-        font-size: 13px;
-        margin-bottom: 30px;
-      }
-
-      #birthmonth,
-      #birthday,
-      #birthyear {
-        width: 32%;
-        margin-bottom: 10px;
-        margin-right: 5px;
-      }
-
-      #password_guide {
-        cursor: pointer;
-        color: blue;
-      }
-
-      .modal-body ul {
-        font-size: 16px;
-      }
-
-      .modal-body li {
-        margin-bottom: 10px;
-      }
-
-      #login_form {
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
-        background-color: #fdfdfd;
-      }
-    </style>
-
-    <script>
-      $(document).ready(function () {
-        let fn_warning = "Please enter your first name";
-        let ln_warning = "Please enter your last name";
-        let e_warning = "Please enter your email address";
-        let pw_warning = "Please enter a password";
-        let character_warning = "Password must consist of 8 - 25 characters";
-        let mismatch_pw_warning = "Passwords do not match";
-        let re_pw_warning = "Please re-enter your password";
-
-        $("#first_name_warning").hide();
-        $("#first_name").focusout(function () {
-          if ($("#first_name").val() == "") {
-            $("#first_name_warning").text(fn_warning).fadeIn(800);
-          } else {
-            $("#first_name_warning").fadeOut();
-          }
-        });
-
-        $("#last_name_warning").hide();
-        $("#last_name").focusout(function () {
-          if ($("#last_name").val() == "") {
-            $("#last_name_warning").text(ln_warning).fadeIn(800);
-          } else {
-            $("#last_name_warning").fadeOut();
-          }
-        });
-
-        $("#email_warning").hide();
-        $("#email").focusout(function () {
-          if ($("#email").val() == "") {
-            $("#email_warning").text(e_warning).fadeIn(800);
-          } else {
-            $("#email_warning").fadeOut();
-          }
-        });
-
-        $("#password_warning").hide();
-
-        $("#password").focusout(function () {
-          if ($("#password").val() == "") {
-            $("#password_warning").text(pw_warning).fadeIn(800);
-          } else {
-            $("#password_warning").fadeOut();
-          }
-        });
-
-        $("#re_enter_warning").hide();
-        $("#re_enter_password").focusout(function () {
-          if ($("#re_enter_password").val() !== $("#password").val()) {
-            $("#re_enter_warning").text(mismatch_pw_warning).fadeIn(800);
-          }
-        });
-
-        $("#submit_button").click(function (event) {
-          event.preventDefault();
-          if (
-            $("#first_name").val() != "" &&
-            $("#last_name").val() != "" &&
-            $("#email").val() != "" &&
-            $("#password").val() != "" &&
-            $("#re_enter_password").val() != ""
-          ) {
-            // Show the modal
-            $("#submit_modal").modal("show");
-          }
-        });
-      });
-    </script>
+    <script></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo</a>
+        <a class="navbar-brand" href="index.html"
+          ><img
+            src="images/3GLogo.png"
+            alt="logo"
+            id="navbar_logo"
+            class="img-fluid"
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#collapsibleNavbar"
+          data-bs-target="#mynavbar"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="login.html"
+                ><span id="signup_login">Sign Up</span></a
+              >
             </li>
           </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Search" />
+            <button class="btn btn-primary" type="button">Search</button>
+          </form>
         </div>
       </div>
     </nav>
@@ -171,7 +61,7 @@
         <div class="col-lg-4 col-md-12 col-12">
           <form id="login_form" class="mt-5">
             <div class="container mb-5">
-              <h1 class="signup-header">Sign Up Now</h1>
+              <h1 class="signup-header">Sign Up now!</h1>
             </div>
 
             <div class="container mb-4">
@@ -373,7 +263,8 @@
                   </select>
                 </div>
               </div>
-
+              <input type="checkbox" /><span id="remember_me">Remember me</span
+              ><br />
               <input
                 type="submit"
                 id="submit_button"
@@ -407,13 +298,16 @@
 
           <!-- Modal footer -->
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
+            <a href="index.html"
+              ><button
+                type="button"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+                id="switch_button"
+              >
+                Close
+              </button></a
             >
-              Close
-            </button>
           </div>
         </div>
       </div>
