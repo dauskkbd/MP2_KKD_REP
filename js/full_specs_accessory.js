@@ -40,4 +40,4 @@ async function getData(data) {
   });
 }
 let accessory = sessionStorage.getItem("accessory_selected");
-getData("https://express-demo-g3ms.onrender.com/api/accessory/" + accessory);
+getData("https://express-mp2-ff9t.onrender.com/api/accessory/" + accessory);

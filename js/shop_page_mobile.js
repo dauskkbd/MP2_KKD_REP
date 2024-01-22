@@ -38,16 +38,15 @@ $(document).ready(function () {
     $("#mobile_cards").text("");
 
     getData(
-      "https://express-demo-g3ms.onrender.com/api/mobile/product/" +
-        manufacturer
+      "https://express-mp2-ff9t.onrender.com/api/mobile/product/" + manufacturer
     );
   });
 });
 $(document).ready(function () {
   $(".filter_all").click(function () {
     $("#mobile_cards").text("");
-    getData("https://express-demo-g3ms.onrender.com/api/mobile/");
+    getData("https://express-mp2-ff9t.onrender.com/api/mobile/");
   });
 });
 
-getData("https://express-demo-g3ms.onrender.com/api/mobile/");
+getData("https://express-mp2-ff9t.onrender.com/api/mobile/");

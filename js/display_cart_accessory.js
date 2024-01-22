@@ -20,5 +20,5 @@ async function getData(data) {
 
 let accessory = sessionStorage.getItem("accessory_view_cart");
 getData(
-  "https://express-demo-g3ms.onrender.com/api/accessory/viewCart/" + accessory
+  "https://express-mp2-ff9t.onrender.com/api/accessory/viewCart/" + accessory
 );

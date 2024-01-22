@@ -19,4 +19,4 @@ async function getData(data) {
 }
 
 let mobile = sessionStorage.getItem("mobile_view_cart");
-getData("https://express-demo-g3ms.onrender.com/api/mobile/viewCart/" + mobile);
+getData("https://express-mp2-ff9t.onrender.com/api/mobile/viewCart/" + mobile);

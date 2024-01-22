@@ -30,4 +30,4 @@ async function getData(data) {
   }
 }
 
-getData("https://express-demo-g3ms.onrender.com/api/accessory/");
+getData("https://express-mp2-ff9t.onrender.com/api/accessory/");
