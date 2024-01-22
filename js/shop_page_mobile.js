@@ -37,14 +37,17 @@ $(document).ready(function () {
     let manufacturer = $(this).val();
     $("#mobile_cards").text("");
 
-    getData("http://localhost:4000/api/mobile/product/" + manufacturer);
+    getData(
+      "https://express-demo-g3ms.onrender.com/api/mobile/product/" +
+        manufacturer
+    );
   });
 });
 $(document).ready(function () {
   $(".filter_all").click(function () {
     $("#mobile_cards").text("");
-    getData("http://localhost:4000/api/mobile/");
+    getData("https://express-demo-g3ms.onrender.com/api/mobile/");
   });
 });
 
-getData("http://localhost:4000/api/mobile/");
+getData("https://express-demo-g3ms.onrender.com/api/mobile/");

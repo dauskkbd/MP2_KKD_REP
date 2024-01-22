@@ -19,4 +19,4 @@ async function getData(data) {
 }
 
 let mobile = sessionStorage.getItem("mobile_view_cart");
-getData("http://localhost:4000/api/mobile/viewCart/" + mobile);
+getData("https://express-demo-g3ms.onrender.com/api/mobile/viewCart/" + mobile);

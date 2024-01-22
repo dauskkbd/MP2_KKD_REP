@@ -52,4 +52,4 @@ async function getData(data) {
 }
 
 let laptop = sessionStorage.getItem("laptop_selected");
-getData("http://localhost:4000/api/laptops/" + laptop);
+getData("https://express-demo-g3ms.onrender.com/api/laptops/" + laptop);

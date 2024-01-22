@@ -42,14 +42,14 @@ $(document).ready(function () {
     let gpu = $(this).val();
     $("#laptop_cards").text("");
 
-    getData("http://localhost:4000/api/laptops/gpu/" + gpu);
+    getData("https://express-demo-g3ms.onrender.com/api/laptops/gpu/" + gpu);
   });
 });
 
 $(document).ready(function () {
   $(".filter_all").click(function () {
     $("#laptop_cards").text("");
-    getData("http://localhost:4000/api/laptops");
+    getData("https://express-demo-g3ms.onrender.com/api/laptops");
   });
 });
-getData("http://localhost:4000/api/laptops");
+getData("https://express-demo-g3ms.onrender.com/api/laptops");

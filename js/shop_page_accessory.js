@@ -30,4 +30,4 @@ async function getData(data) {
   }
 }
 
-getData("http://localhost:4000/api/accessory/");
+getData("https://express-demo-g3ms.onrender.com/api/accessory/");

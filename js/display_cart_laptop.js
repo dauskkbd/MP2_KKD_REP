@@ -19,4 +19,6 @@ async function getData(data) {
 }
 
 let laptop = sessionStorage.getItem("laptop_view_cart");
-getData("http://localhost:4000/api/laptops/viewCart/" + laptop);
+getData(
+  "https://express-demo-g3ms.onrender.com/api/laptops/viewCart/" + laptop
+);
